@@ -24,9 +24,9 @@ class App extends React.Component {
       console.log("TXID", txid);
       this.setState({ shortURL: "Waiting for tx to confirm" });
     };
-    this.shortener.URLShortened = (err, result) => {
+    this.shortener.onURLShortened = (err, result) => {
       console.log("result", result);
-      this.setState({ shortURL: result.slug });
+      this.setState({ shortURL: result.args.slug });
     };
   }
 
@@ -107,7 +107,7 @@ class App extends React.Component {
             >
               {shortURL.startsWith("Waiting")
                 ? shortURL
-                : `https://0xSU.com/${shortURL}`}
+                : `https://0xSU.co/${shortURL}`}
             </span>
             &nbsp;
             {!shortURL.startsWith("Waiting") && (
