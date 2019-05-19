@@ -1082,10 +1082,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^12.0.9"
 
-"@jonbiro/0xsu-js-lib@^2.0.4":
-  version "2.0.4"
-  resolved "https://registry.npmjs.org/@jonbiro/0xsu-js-lib/-/0xsu-js-lib-2.0.4.tgz#334fa1908613f593ee74b37355276df58351f071"
-  integrity sha512-anZtZnZJ23vtDudrSkyfFrJgKxTLfCAngnh6bv7KGp4yRHN35/OWJEJ/2e7Qi+dQsRuDNMPAbZCt89BUF+69pQ==
+"@jonbiro/0xsu-js-lib@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.npmjs.org/@jonbiro/0xsu-js-lib/-/0xsu-js-lib-2.0.5.tgz#a03e777b73e73acabf8f0fd0386b0289a271dd11"
+  integrity sha512-BgrgFzDnk/7ILiqtV9jytiBqynKbF8VKL5J/KI/u8v06Elw/0fQ1y9XCQY8032iwWOpqSZUaFRzS2P5OjPDcag==
   dependencies:
     web3 "^1.0.0-beta.55"
 

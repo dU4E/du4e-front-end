@@ -22,7 +22,11 @@ class App extends React.Component {
     this.shortener = new Du4e();
     this.shortener.onTxSend = txid => {
       console.log("TXID", txid);
-      this.setState({ shortURL: "Waiting for tx to confirm..." });
+      this.setState({ shortURL: "Waiting for tx to confirm" });
+    };
+    this.shortener.URLShortened = (err, result) => {
+      console.log("result", result);
+      this.setState({ shortURL: result.slug });
     };
   }
 
@@ -98,12 +102,14 @@ class App extends React.Component {
           <div className={shortURL ? "" : "hidden"}>
             <br />
             <br />
-            <span>
+            <span
+              className={shortURL.startsWith("Waiting") ? "loading" : ""}
+            >
               {shortURL.startsWith("Waiting")
                 ? shortURL
                 : `https://0xSU.com/${shortURL}`}
-              &nbsp;
             </span>
+            &nbsp;
             {!shortURL.startsWith("Waiting") && (
               <Badge variant="success" onClick={this.copy} className="copy">
                 {this.state.copied ? "Copied!" : "Copy"}
@@ -126,9 +132,11 @@ class App extends React.Component {
           </Modal.Header>
           <Modal.Body>
             {this.state.urls.map(x => {
-              return (<p key={x}>
-                <a href={`https://0xsu.co/${x}`}>{x}</a>
-              </p>);
+              return (
+                <p key={x}>
+                  <a href={`https://0xsu.co/${x}`}>{x}</a>
+                </p>
+              );
             })}
           </Modal.Body>
         </Modal>
