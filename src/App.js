@@ -1,9 +1,9 @@
-import React from "react"
-import Du4e from "@jonbiro/0xsu-js-lib"
+import React from "react";
+import Du4e from "@jonbiro/0xsu-js-lib";
 // import logo from './logo.svg'
-import "./App.css"
-import Navbar from "react-bootstrap/Navbar"
-import { Badge, Container, Form, Modal, Button, Col } from "react-bootstrap"
+import "./App.css";
+import Navbar from "react-bootstrap/Navbar";
+import { Badge, Container, Form, Modal, Button, Col } from "react-bootstrap";
 
 class App extends React.Component {
   state = {
@@ -43,8 +43,8 @@ class App extends React.Component {
     this.setState({ copied: true });
   }
 
-  handleClose(){
-    this.setState({show: false})
+  handleClose() {
+    this.setState({ show: false });
   }
 
   viewAcct() {
@@ -55,8 +55,8 @@ class App extends React.Component {
 
   shortenUrl(evt) {
     evt.preventDefault();
-    if (typeof(window.web3) === 'undefined'){
-      window.widget.open()
+    if (typeof window.web3 === "undefined") {
+      window.widget.open();
     } else {
       this.shortener.shortenUrl(this.refs.short.value, { cb: () => {} });
     }
@@ -77,8 +77,7 @@ class App extends React.Component {
           <br />
           <h1 className="App">0xSU.co</h1>
           <p>
-            Your friendly neighborhood decentralized Ethereum Short URL
-            maker
+            Your friendly neighborhood decentralized Ethereum Short URL maker
           </p>
           <br />
           <form onSubmit={this.shortenUrl}>
@@ -102,9 +101,7 @@ class App extends React.Component {
           <div className={shortURL ? "" : "hidden"}>
             <br />
             <br />
-            <span
-              className={shortURL.startsWith("Waiting") ? "loading" : ""}
-            >
+            <span className={shortURL.startsWith("Waiting") ? "loading" : ""}>
               {shortURL.startsWith("Waiting")
                 ? shortURL
                 : `https://0xSU.co/${shortURL}`}
@@ -145,4 +142,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default App;
