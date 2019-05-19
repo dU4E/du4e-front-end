@@ -51,7 +51,11 @@ class App extends React.Component {
 
   shortenUrl(evt) {
     evt.preventDefault();
-    this.shortener.shortenUrl(this.refs.short.value, { cb: () => {} });
+    if (typeof(window.web3) === 'undefined'){
+      window.widget.open()
+    } else {
+      this.shortener.shortenUrl(this.refs.short.value, { cb: () => {} });
+    }
   }
 
   render() {
