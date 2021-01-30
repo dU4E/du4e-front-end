@@ -1,5 +1,5 @@
 import React from "react";
-import Du4e from "@jonbiro/0xsu-js-lib";
+import Du4e from "@sahilsen/0xsu-js-lib";
 // import logo from './logo.svg'
 import "./App.css";
 import Navbar from "react-bootstrap/Navbar";
@@ -49,17 +49,14 @@ class App extends React.Component {
 
   viewAcct() {
     this.shortener.listOfUrls(list => {
+      console.log(list);
       this.setState({ urls: list });
     });
   }
 
   shortenUrl(evt) {
     evt.preventDefault();
-    if (typeof window.web3 === "undefined") {
-      window.widget.open();
-    } else {
-      this.shortener.shortenUrl(this.refs.short.value, { cb: () => {} });
-    }
+    this.shortener.shortenUrl(this.refs.short.value, { cb: () => {} });
   }
 
   render() {
@@ -104,7 +101,7 @@ class App extends React.Component {
             <span className={shortURL.startsWith("Waiting") ? "loading" : ""}>
               {shortURL.startsWith("Waiting")
                 ? shortURL
-                : `https://0xSU.co/${shortURL}`}
+                : `http://localhost:3001/${shortURL}`}
             </span>
             &nbsp;
             {!shortURL.startsWith("Waiting") && (
@@ -131,7 +128,7 @@ class App extends React.Component {
             {this.state.urls.map(x => {
               return (
                 <p key={x}>
-                  <a href={`https://0xsu.co/${x}`}>{x}</a>
+                  <a href={`http://localhost:3001/${x}`}>{x}</a>
                 </p>
               );
             })}
